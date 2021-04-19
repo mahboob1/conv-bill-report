@@ -1,0 +1,50 @@
+security:
+  intuit:
+    appId: Intuit.platform.ctoserviceplatform.serviceplatformrest
+    appSecret: preprdXeFmhCoWgvlcftuUJM8Qt31a232fH4nIoC
+    accessServiceEndpoint: https://access-e2e.platform.intuit.com/v2/tickets
+    ignored: /health/**, /v3/api-docs/**, /swagger-ui.html, /swagger-ui/**, /webjars/**, /swagger-resources/**  
+basic:
+    enable: false
+    ignored: /**
+
+
+# To disable Open API UI endpoints in PROD, uncomment the following in PROD profile
+# springdoc:
+#  api-docs:
+#   enabled: false
+#  swagger-ui:
+#   enabled: false
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle12cDialect
+  datasource-ca:
+    username: IDBS_BILL_HIST_CNV
+  datasource-uk:
+    username: IDBS_BILL_HIST_CNV
+
+jsk:
+  lastmile:
+    enabled: false
+
+server:
+  include-debug-info: true
+  port: 8080
+
+http:
+  port: 8080
+
+management:
+  server:
+    port: 8490
+    ssl:
+      enabled: false
+      key-alias: tomcat
+      key-store: classpath:management.jks
+      key-store-password: password
+      key-store-type: jks
+  endpoints:
+    web:
+      exposure:
+        include: ["health","info","prometheus"]

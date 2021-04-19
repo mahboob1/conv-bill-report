@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<HEAD>
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    <META NAME="referrer" CONTENT="no-referrer">
+    <style type="text/css">
+        div, p, a, li, td {
+            -webkit-text-size-adjust:none;
+        }
+
+        .applelinksBlack a {
+            color:#666666;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner">
+
+    <table cellpadding="0" cellspacing="0" width="100%" style="min-width: 100%; " class="stylingblock-content-wrapper"><tr><td class="stylingblock-content-wrapper camarker-inner"><table width="650" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+        <tr>
+            <td width="650" colspan="3" align="left" valign="top" bgcolor="#FFFFFF" style="border-bottom: 4px solid #2CA01C; padding:0px 0px 8px 0px">
+                <img th:src="${headerImage}" alt="Intuit QuickBooks" height="45" border="0" style="display:block;">
+            </td>
+        </tr>
+    </table>
+        <table width="650" align="center" border="0" cellpadding="0" cellspacing="0" bgcolor="#d1d1d1">
+            <tr>
+                <td style="padding:0px" valign="top" align="center">
+                    <table width="630" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                        <tr>
+                            <td width="650" height="10" colspan="3" align="center" valign="top" bgcolor="#FFFFFF" style="padding:0px 0px 0px 0px; ">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" valign="top" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; line-height:21px; padding: 0px 20px 10px 20px; font-weight:bold; color:#666666; font-size:18px; ">
+                                <table width="590" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="center" valign="top" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; line-height:21px; padding: 10px 0px 10px 0px; font-weight:bold; color:#666666; font-size:18px">QuickBooks Subscription Statement
+                                            <br>
+                                            Your monthly payment has been <span th:text="${Payment_Status_Header}"></span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" valign="top" bgcolor="#FFFFFF" style="padding: 0px 0px 0px 0px; border-top: 1px solid #d1d1d1; line-height:10px">&nbsp;
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="left" valign="top" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 0px 20px 0px 20px; color:#666666; font-size:12px"><span class="applelinksBlack">
+            <span th:text="${Payment_Status_Description}"></span><br>
+
+            <br>
+            <br>
+            <strong>Customer Number:</strong> <span th:text="${CURRENT_CUSTOMER_NUMBER}"></span>
+            <br>
+            <strong>Subscription Number:</strong> <span th:text="${CSP_ID}"></span>
+            <br>
+            <strong>Payment Number:</strong> <span th:text="${PAYMENT_NUMBER}"></span>
+
+
+            <br>
+            <br>
+            <strong><span th:text="${COMPANY_NAME}"></span></strong>
+            <br>
+            Attention: Accounts Payable
+            <br>
+            <span th:text="${SHIPPING_ADDRESS_1}"></span> <span th:text="${SHIPPING_ADDRESS_2}"></span> <span th:text="${SHIPPING_ADDRESS_3}"></span>
+            <br>
+            <span th:text="${SHIPPING_CITY}">, </span><span th:text="${SHIPPING_PROVINCE}"></span>
+            <br>
+            <span th:text="${SHIPPING_POSTAL_CODE}"> </span><span th:text="${COUNTRY}"></span>
+            <br>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td align="left" valign="top" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 10px 0px 10px 0px; color:#666666; font-size:12px">
+                  <strong>Service Description:</strong> <span th:text="${ITEM_DESCRIPTION}"></span>
+                  <br>&nbsp;
+                </td>
+              </tr>
+            </table>
+          </span></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" valign="top" bgcolor="#FFFFFF" style="padding: 25px 0px 0px 0px; color:#666666; ">
+                                <table width="590" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td bgcolor="#4d84c4" colspan="6" align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 5px; color:#FFFFFF; font-size:12px">
+                                            <strong>Processing Information</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td width="90" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">
+                                            <strong>Billing Date</strong>
+                                        </td>
+                                        <td width="80" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">
+                                            <strong>Charge Date</strong>
+                                        </td>
+                                        <td width="110" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">
+                                            <strong>Payment Method*</strong>
+                                        </td>
+                                        <td width="120" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">
+                                            <strong>Payment Account</strong>
+                                        </td>
+                                        <td width="90" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">
+                                            <strong>Payment Total</strong>
+                                        </td>
+                                        <td width="100" align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 3px 3px 3px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-right:1px solid #999999">
+                                            <strong>Payment Status</strong>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${BILLING_DATE}"></span>
+                                        </td>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${CHARGE_DATE}"></span>
+                                        </td>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${PAYMENT_METHOD}"></span>
+                                        </td>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${PAYMENT_ACCOUNT_NUMBER}"></span>
+                                        </td>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${BILLED_AMOUNT}"></span>
+                                        </td>
+                                        <td align="center" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 3px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999; border-right:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${Payment_Status}"></span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" valign="top" bgcolor="#FFFFFF" style="padding: 25px 20px 15px 20px; color:#666666; ">
+                                <table width="590" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="right" valign="top" style="padding: 5px 0px 5px 0px">
+                                            <table width="250" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td width="152" align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-left:1px solid #999999">Current Subscription:
+                                                    </td>
+                                                    <td width="98" align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-top:1px solid #999999; border-right:1px solid #999999"><span th:text="${Current_Subscription}"></span>
+                                                    </td>
+                                                </tr>
+
+
+                                                <tr>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-left:1px solid #999999; border-top:1px solid #999999;">Subtotal:
+                                                    </td>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-right:1px solid #999999; border-top:1px solid #999999;"><span th:text="${SUBTOTAL}"></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-left:1px solid #999999; border-top:1px solid #999999;">GST/HST:
+                                                    </td>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-right:1px solid #999999; border-top:1px solid #999999;"><span th:text="${CHARGE_GST_HST}"></span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-left:1px solid #999999; border-top:1px solid #999999; border-bottom:1px solid #999999">PST/QST:
+                                                    </td>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-right:1px solid #999999; border-top:1px solid #999999; border-bottom:1px solid #999999"><span th:text="${CHARGE_PST_QST}"></span>
+                                                    </td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td height="6" align="right" valign="top" style="padding: 3px 0px 0px 0px; border-left:1px solid #FFFFFF; border-top:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF; line-height:6px">&nbsp;
+                                                    </td>
+                                                    <td height="6" align="right" valign="top" style="padding: 3px 0px 0px 0px; border-right:1px solid #FFFFFF; border-top:1px solid #FFFFFF; border-bottom:1px solid #FFFFFF; line-height:6px">&nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 0px 5px 0px; color:#666666; font-size:12px; border-left:1px solid #999999; border-top:1px solid #999999; border-bottom:1px solid #999999">
+                                                        <strong>Total:</strong>
+                                                    </td>
+                                                    <td align="right" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 5px 5px 0px; color:#666666; font-size:12px; border-right:1px solid #999999; border-top:1px solid #999999; border-bottom:1px solid #999999">
+                                                        <strong><span th:text="${TOTAL}"></span></strong>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="340" align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 5px 0px 5px 20px; color:#666666; font-size:12px">
+                                            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                <tr>
+                                                    <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 0px 0px 5px 0px; color:#666666; font-size:12px">*CC = Credit Card
+                                                        <br>
+                                                        &nbsp;&nbsp;EFT = Bank Account Withdrawal
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 5px 0px; color:#666666; font-size:12px">
+                                                        <span style="font-family:Arial, Helvetica, sans-serif; line-height:16px; color:#666666; font-size:12px"><strong>GST/HST Registration Number:</strong><span th:text="${GST_HST_REGISTRATION_NUMBER}"></span><br>
+
+
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 5px 0px; color:#666666; font-size:12px">Have you moved? Email us at
+                                                        <br>
+                                                        <a href="mailto:canadacustomercare@intuit.com" style="color:#4d84c4">canadacustomercare@intuit.com</a> to update your address.
+                                                        <br>To update your payment information please visit us at
+                                                        <a href="http://ccupdate.app.intuit.com/" style="color:#4d84c4">quickbooks.ca/accountupdate</a>.
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td align="left" valign="top" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 3px 0px 0px 0px; color:#666666; font-size:12px">To learn more about this statement
+                                                        <a href="https://www.intuit.com/ca/support/" style="color:#4d84c4">visit us online</a>.
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3" align="center" valign="top" bgcolor="#FFFFFF" style="padding:0px; ">
+                                <table width="590" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" valign="top" bgcolor="#FFFFFF" style="padding: 0px 0px 0px 0px; font-family:Arial, Helvetica, sans-serif; line-height:16px; color:#666666; font-size:12px">
+
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" valign="top" bgcolor="#FFFFFF" style="padding: 0px 0px 0px 0px; border-bottom: 1px solid #d1d1d1; font-family:Arial, Helvetica, sans-serif; line-height:16px; color:#666666; font-size:12px">                 </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="left" valign="top" bgcolor="#FFFFFF" style="font-family:Arial, Helvetica, sans-serif; line-height:16px; padding: 0px 0px 0px 0px; color:#666666; font-size:12px; ">
+                                <table width="98%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td align="left" valign="top" bgcolor="#FFFFFF" style="padding: 5px 20px 20px 20px; font-family:Arial, Helvetica, sans-serif; font-size: 10px; color:#666666">This email was sent by:
+                                            <strong>Intuit Canada ULC</strong>
+                                            <br>
+                                            5100 Spectrum Way, Mississauga, ON, L4W 5S2, Canada
+                                            <br>
+                                            <br>&copy; Intuit Canada ULC. All rights reserved.
+                                            <br><span style="color:#ffffff">ETC_Integra_CA_SubscriptionStatement_EN
+                    <br>1-5ecc87e9-cd59079d5ca33ba5e54eed76</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td height="10" width="650" colspan="3" align="left" valign="top" bgcolor="#d1d1d1" style="padding:0px 0px 0px 0px; line-height:10px">&nbsp;
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table></td></tr></table>
+</td></tr></table>
+</body></HTML>

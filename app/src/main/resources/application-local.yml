@@ -1,0 +1,13 @@
+security:
+  intuit:
+    permit-all: true
+
+spring:
+  jpa:
+    show-sql: true
+  datasource-ca:
+    password: # password will be added to IDPS
+    jdbcUrl: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 9991)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = caie2e_rw)))
+  datasource-uk:
+    password:
+    jdbcUrl: jdbc:oracle:thin:@(DESCRIPTION = (ADDRESS = (PROTOCOL = TCP)(HOST = localhost)(PORT = 9992)) (CONNECT_DATA = (SERVER = DEDICATED) (SERVICE_NAME = ukie2e_rw)))

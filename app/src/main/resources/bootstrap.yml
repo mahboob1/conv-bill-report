@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: jsk-sp-boot-mvc-sample

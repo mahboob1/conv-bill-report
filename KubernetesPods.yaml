@@ -1,0 +1,90 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: billingcomm-orderprocess-conv-bill-hist-java-spring-mvc
+spec:
+  containers:
+  - name: podman
+    image: docker.intuit.com/oicp/standard/podman:1.0.0
+    tty: true
+    command: ["cat"]
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: shared-build-output
+      mountPath: /var/run/outputs
+    - name: shared-m2
+      mountPath: /var/run/shared-m2
+    securityContext:
+      capabilities:
+        add: ["SYS_ADMIN", "SYS_RESOURCE"]
+  - name: cpd2
+    image: docker.intuit.com/oicp/standard/cpd2:1
+    tty: true
+    command: ["cat"]
+    imagePullPolicy: Always
+  - name: jnlp
+    image: docker.intuit.com/dev/build/ibp/jnlp-slave-with-docker:3.36-2_master_85
+    tty: true
+    args: ["$(JENKINS_SECRET)", "$(JENKINS_AGENT_NAME)", "-url", "$(JENKINS_URL)"]
+    volumeMounts:
+    - name: shared-build-output
+      mountPath: /var/run/outputs
+    - name: shared-m2
+      mountPath: /var/run/shared-m2
+  - name: docker
+    image: docker.intuit.com/docker:18.09.1
+    tty: true
+    command: ["cat"]
+    volumeMounts:
+    - name: dind-volume
+      mountPath: /var/run/docker.sock
+    - name: shared-build-output
+      mountPath: /var/run/outputs
+    - name: shared-m2
+      mountPath: /var/run/shared-m2
+  - name: cpd
+    image: docker.intuit.com/oicp/standard/cpd:0.4
+    tty: true
+    command: ["cat"]
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: dind-volume
+      mountPath: /var/run/docker.sock
+  - name: cdtools
+    image: docker.intuit.com/dev/deploy/cd/argocd-utils:stable
+    tty: true
+    command: ["cat"]
+    imagePullPolicy: Always
+  - name: servicenow
+    image: docker.intuit.com/dev/patterns/servicenow-agent/service/servicenow-agent:master-89-5785e2b
+    tty: true
+    command: ["cat"]
+    imagePullPolicy: Always
+  - name: test
+    image: docker.intuit.com/oicp/standard/external/maven:3.5.3-jdk-8
+    tty: true
+    command:
+    - cat
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: shared-build-output
+      mountPath: /var/run/outputs
+    - name: shared-m2
+      mountPath: /var/run/shared-m2
+  - name: karate
+    image: docker.intuit.com/dev/containers/karate-docker/service/karate-docker:0.9.4
+    tty: true
+    command:
+    - cat
+    imagePullPolicy: Always
+    volumeMounts:
+    - name: shared-build-output
+      mountPath: /var/run/outputs
+  volumes:
+  - name: shared-m2
+    emptyDir: {}
+  - name: dind-volume
+    hostPath:
+      path: /var/run/dind/docker.sock
+  - name: shared-build-output
+    emptyDir: {}

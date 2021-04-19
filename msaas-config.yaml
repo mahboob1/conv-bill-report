@@ -1,0 +1,68 @@
+l1: billingcomm
+enableBuildQualityMetrics: true
+enableDeployQualityMetrics: true
+kubernetesServiceName: conv-bill-hist-appd-service
+l2: billingcomm
+git_org: billingcomm-orderprocess
+#
+
+service_name: conv-bill-hist
+asset_id: 8073845824510750151
+asset_alias: Intuit.billingcomm.billing.qbdtconvbillhist
+code_repo: github.intuit.com/billingcomm-orderprocess/conv-bill-hist.git
+deploy_repo: github.intuit.com/billingcomm-orderprocess/conv-bill-hist-deployment.git
+argocd_server: t4i.argocd.tools-k8s-prd.a.intuit.com:443
+argocd_password: argocd-conv-bill-hist
+argocd_project: billingcomm-orderprocess-conv-bill-hist
+argocd_project_enabled: true
+#
+
+registry: docker.artifactory.a.intuit.com
+repo: billingcomm-orderprocess/conv-bill-hist/service
+## change this to false once ready for PRD
+preprodOnly: true
+snow_application_name: ''
+## change this to true for enabling Jira stories to be transitioned
+enableJiraTransition: false
+## change this to true for enable Code Analysis stage
+SonarQubeAnalysis: false
+## change this to true for stop your pipeline in quality gate error
+SonarQubeEnforce: false
+## enable this to true once test suite has matured in confidence to help automate deployments
+enableScorecardReadinessCheck: false
+## to bypass the scorecard readiness check's fall back, gitOpsApproval, set this to true
+skipScorecardManualFallback: false
+## Cocoon
+enableCocoon: true
+cleanupCocoon: false
+cocoonBasic: dev/patterns/cocoon/service/basic
+environments:
+  qal-usw2-eks:
+    ingress_endpoint: https://billingcomm-qal-conv-bill-hist.t4ippdusw2.iks2.a.intuit.com
+    jacoco_endpoint: https://billingcomm-qal-conv-bill-hist-jacoco.t4ippdusw2.iks2.a.intuit.com
+    cluster: https://eksapi-t4i-ppd-usw2-k8s-7c933acaba6130dc.elb.us-west-2.amazonaws.com
+    namespace: billingcomm-orderprocess-convbillhist-usw2-qal
+    region: usw2
+    iks_type: ppd
+    manifest_format: Kustomize
+  e2e-usw2-eks:
+    ingress_endpoint: https://billingcomm-e2e-conv-bill-hist.t4ippdusw2.iks2.a.intuit.com
+    cluster: https://eksapi-t4i-ppd-usw2-k8s-7c933acaba6130dc.elb.us-west-2.amazonaws.com
+    namespace: billingcomm-orderprocess-convbillhist-usw2-e2e
+    region: usw2
+    iks_type: ppd
+    manifest_format: Kustomize
+  stg-usw2-eks:
+    ingress_endpoint: https://billingcomm-stg-conv-bill-hist.t4iprdusw2.iks2.a.intuit.com
+    cluster: https://eksapi-t4i-prd-usw2-k8s-8b550c9fc5c46e63.elb.us-west-2.amazonaws.com
+    namespace: billingcomm-orderprocess-convbillhist-usw2-stg
+    region: usw2
+    iks_type: prd
+    manifest_format: Kustomize
+  prd-usw2-eks:
+    ingress_endpoint: https://billingcomm-prd-conv-bill-hist.t4iprdusw2.iks2.a.intuit.com
+    cluster: https://eksapi-t4i-prd-usw2-k8s-8b550c9fc5c46e63.elb.us-west-2.amazonaws.com
+    namespace: billingcomm-orderprocess-convbillhist-usw2-prd
+    region: usw2
+    iks_type: prd
+    manifest_format: Kustomize
